@@ -1,0 +1,29 @@
+# Material privado del profesor
+README_SOLO_PROFESOR.md
+solucion-docente/
+
+# Archivos comprimidos y copias
+*.zip
+*.rar
+*.7z
+*_backup*
+*_copia*
+*_privado*
+
+# Entregas locales
+entregas/
+evidencias-estudiante/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Dependencias si se agregan herramientas despues
+node_modules/
+dist/
+build/
+.cache/

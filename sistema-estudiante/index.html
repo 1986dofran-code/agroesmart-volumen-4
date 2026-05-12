@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroSmart Rural - Sistema base</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="tag">Sistema base para perfeccionamiento</p>
+      <h1>AgroSmart Rural</h1>
+      <p class="hero-text">
+        Registro sencillo de leche y maiz para la Finca La Esperanza.
+      </p>
+    </div>
+    <div class="toolbar">
+      <button type="button" id="btnDemo">Cargar demo</button>
+      <button type="button" id="btnExportCSV">Exportar CSV</button>
+      <button type="button" id="btnExportJSON">Exportar JSON</button>
+      <button type="button" id="btnLimpiar">Limpiar</button>
+      <button type="button" id="btnTema">Tema</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel dashboard" aria-label="Indicadores principales">
+      <article class="card">
+        <span>Total leche</span>
+        <strong id="kpiLeche">0 L</strong>
+        <small>Produccion acumulada</small>
+      </article>
+      <article class="card">
+        <span>Total maiz</span>
+        <strong id="kpiMaiz">0 kg</strong>
+        <small>Cosecha acumulada</small>
+      </article>
+      <article class="card">
+        <span>Promedio leche</span>
+        <strong id="kpiPromedio">0 L</strong>
+        <small>Promedio por registro</small>
+      </article>
+      <article class="card">
+        <span>Alertas</span>
+        <strong id="kpiAlertas">0</strong>
+        <small>Registros con riesgo</small>
+      </article>
+    </section>
+
+    <section class="panel grid-dos">
+      <form id="formRegistro" class="formulario">
+        <h2>Nuevo registro diario</h2>
+        <p>Ingresa datos de produccion para analizar el estado de la finca.</p>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" />
+
+        <label for="leche">Litros de leche</label>
+        <input type="number" id="leche" placeholder="Ej: 18" />
+
+        <label for="maiz">Kilos de maiz</label>
+        <input type="number" id="maiz" placeholder="Ej: 42" />
+
+        <label for="animales">Animales en produccion</label>
+        <input type="number" id="animales" placeholder="Ej: 6" />
+
+        <label for="nota">Observacion</label>
+        <textarea id="nota" rows="3" placeholder="Ej: Dia lluvioso, hubo poco pasto"></textarea>
+
+        <button type="submit" class="principal">Registrar</button>
+        <p id="mensaje" class="mensaje">Listo para registrar datos.</p>
+      </form>
+
+      <aside class="reporte">
+        <h2>Reporte rapido</h2>
+        <p id="reporteTexto">Aun no hay informacion suficiente para generar recomendaciones.</p>
+        <canvas id="grafico" width="520" height="260" aria-label="Grafico de produccion"></canvas>
+      </aside>
+    </section>
+
+    <section class="panel">
+      <div class="section-title">
+        <h2>Registros de produccion</h2>
+        <p>La tabla debe actualizarse automaticamente cuando se registren datos.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Leche</th>
+              <th>Maiz</th>
+              <th>Animales</th>
+              <th>Leche/animal</th>
+              <th>Estado</th>
+              <th>Accion</th>
+            </tr>
+          </thead>
+          <tbody id="tablaRegistros">
+            <tr>
+              <td colspan="7">Sin registros.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel diagnostico">
+      <h2>Panel de diagnostico</h2>
+      <p>Este espacio se usara para registrar acciones tecnicas del sistema.</p>
+      <ul id="diagnosticoLista">
+        <li>Sistema base cargado.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
