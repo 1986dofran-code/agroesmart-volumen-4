@@ -21,10 +21,26 @@ body {
   color: var(--text);
 }
 
+body.tema-oscuro {
+  --bg: #17211b;
+  --panel: #223025;
+  --text: #f2f7f0;
+  --muted: #bfd0c2;
+  --line: #3d5142;
+  --accent: #86c97c;
+  --warning: #f4c35d;
+  --danger: #ff9b8f;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
 .hero {
   padding: 24px;
   background: #e8f5e9;
   border-bottom: 1px solid var(--line);
+}
+
+body.tema-oscuro .hero {
+  background: #1d2b20;
 }
 
 .tag {
@@ -52,7 +68,7 @@ body {
 
 button {
   border: 1px solid var(--line);
-  background: white;
+  background: var(--panel);
   color: var(--text);
   border-radius: 8px;
   padding: 9px 12px;
@@ -65,7 +81,7 @@ button:hover {
 
 .principal {
   background: var(--accent);
-  color: white;
+  color: #ffffff;
 }
 
 .layout {
@@ -135,8 +151,10 @@ textarea {
 }
 
 canvas {
+  display: block;
   width: 100%;
   max-width: 100%;
+  background: var(--panel);
   border: 1px dashed var(--line);
   border-radius: 12px;
   margin-top: 12px;
@@ -160,6 +178,28 @@ td {
 
 th {
   background: #f0f5ef;
+}
+
+body.tema-oscuro th {
+  background: #2c3c30;
+}
+
+.estado {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.estado-normal {
+  background: rgba(47, 125, 50, 0.14);
+  color: var(--accent);
+}
+
+.estado-revisar {
+  background: rgba(180, 35, 24, 0.14);
+  color: var(--danger);
 }
 
 .diagnostico ul {

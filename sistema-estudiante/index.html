@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="hero">
+  <header class="hero">s
     <div>
       <p class="tag">Sistema base para perfeccionamiento</p>
       <h1>AgroSmart Rural</h1>
@@ -54,28 +54,30 @@
         <p>Ingresa datos de produccion para analizar el estado de la finca.</p>
 
         <label for="fecha">Fecha</label>
-        <input type="date" id="fecha" />
+        <input type="date" id="fecha" required />
 
         <label for="leche">Litros de leche</label>
-        <input type="number" id="leche" placeholder="Ej: 18" />
+        <input type="number" id="leche" min="0" step="0.1" placeholder="Ej: 18" required />
 
         <label for="maiz">Kilos de maiz</label>
-        <input type="number" id="maiz" placeholder="Ej: 42" />
+        <input type="number" id="maiz" min="0" step="0.1" placeholder="Ej: 42" required />
 
         <label for="animales">Animales en produccion</label>
-        <input type="number" id="animales" placeholder="Ej: 6" />
+        <input type="number" id="animales" min="1" step="1" placeholder="Ej: 6" required />
 
         <label for="nota">Observacion</label>
         <textarea id="nota" rows="3" placeholder="Ej: Dia lluvioso, hubo poco pasto"></textarea>
 
         <button type="submit" class="principal">Registrar</button>
-        <p id="mensaje" class="mensaje">Listo para registrar datos.</p>
+        <p id="mensaje" class="mensaje" aria-live="polite">Listo para registrar datos.</p>
       </form>
 
       <aside class="reporte">
         <h2>Reporte rapido</h2>
         <p id="reporteTexto">Aun no hay informacion suficiente para generar recomendaciones.</p>
-        <canvas id="grafico" width="520" height="260" aria-label="Grafico de produccion"></canvas>
+        <canvas id="grafico" width="520" height="260" aria-label="Grafico de produccion">
+          Tu navegador no permite ver el grafico.
+        </canvas>
       </aside>
     </section>
 
