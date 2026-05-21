@@ -1,4 +1,4 @@
-# AgroSmart Rural
+# AgroSmart Rural - Volumen 4
 
 Proyecto de sistema base para el registro y análisis de producción agrícola y ganadera, con foco en leche y maíz para la "Finca La Esperanza".
 
@@ -19,10 +19,17 @@ Proyecto de sistema base para el registro y análisis de producción agrícola y
 
 ## Estructura del proyecto
 
-- `sistema-estudiante/index.html` - página principal de la aplicación.
-- `sistema-estudiante/css/styles.css` - estilos de presentación.
-- `sistema-estudiante/js/app.js` - lógica de la aplicación.
-- `entrega/INFORME_REVISION.md` - documento de informe o revisión asociado al proyecto.
+```text
+sistema-estudiante/
+  index.html
+  css/
+    styles.css
+  js/
+    app.js
+entrega/
+  INFORME_REVISION.md
+mejoras.md
+```
 
 ## Cómo ejecutar
 
@@ -40,7 +47,7 @@ python -m http.server 8000
 
 Luego abre en el navegador:
 
-```
+```text
 http://localhost:8000
 ```
 
@@ -52,6 +59,12 @@ http://localhost:8000
 - Haz clic en `Exportar CSV` o `Exportar JSON` para guardar los datos.
 - Usa `Limpiar` para borrar todos los registros.
 - Cambia el tema con el botón `Tema`.
+
+## Tecnologías
+
+- HTML
+- CSS
+- JavaScript
 
 ## Recomendaciones
 
@@ -65,6 +78,10 @@ http://localhost:8000
 - Se añadió validación para evitar registros con la misma fecha, mejorando la calidad de los datos.
 - Se habilitó persistencia local en el navegador para que los registros se mantengan después de recargar la página.
 - Se creó `mejoras.md` para documentar la revisión, la sugerencia recibida y la reflexión.
+
+## Repositorio
+
+https://github.com/1986dofran-code/agroesmart-volumen-4.git
 
 ## Nota
 
