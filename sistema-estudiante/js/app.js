@@ -8,6 +8,18 @@ const contextoGrafico = grafico.getContext("2d");
 
 let registros = [];
 
+const datosGuardados = localStorage.getItem("agrosmart-registros");
+if (datosGuardados) {
+  try {
+    const registrosParseados = JSON.parse(datosGuardados);
+    if (Array.isArray(registrosParseados)) {
+      registros = registrosParseados;
+    }
+  } catch (error) {
+    console.warn("Error cargando datos guardados:", error);
+  }
+}
+
 formRegistro.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
@@ -36,7 +48,13 @@ formRegistro.addEventListener("submit", function (evento) {
     return;
   }
 
+  if (registros.some(function (registro) { return registro.fecha === fecha; })) {
+    mensaje.textContent = "Ya existe un registro para esa fecha.";
+    return;
+  }
+
   registros.push({ fecha, leche, maiz, animales, nota });
+  guardarRegistros();
   mensaje.textContent = "Registro agregado correctamente.";
   formRegistro.reset();
   renderizar();
@@ -49,12 +67,14 @@ document.querySelector("#btnDemo").addEventListener("click", function () {
     { fecha: "2026-05-02", leche: 4, maiz: 25, animales: 6, nota: "Baja produccion" },
     { fecha: "2026-05-03", leche: 21, maiz: 48, animales: 7, nota: "Mejoro el pasto" }
   ];
+  guardarRegistros();
   renderizar();
   agregarDiagnostico("Se cargaron datos de demostracion.");
 });
 
 document.querySelector("#btnLimpiar").addEventListener("click", function () {
   registros = [];
+  guardarRegistros();
   renderizar();
   agregarDiagnostico("Se limpiaron los registros.");
 });
@@ -172,8 +192,13 @@ function renderizarReporte() {
 
 function eliminarRegistro(indice) {
   registros.splice(indice, 1);
+  guardarRegistros();
   renderizar();
   agregarDiagnostico("Se elimino un registro de la tabla.");
+}
+
+function guardarRegistros() {
+  localStorage.setItem("agrosmart-registros", JSON.stringify(registros));
 }
 
 function agregarDiagnostico(texto) {
